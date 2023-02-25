@@ -1,0 +1,111 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Le Quai-Antique | La carte
+{% endblock %}
+
+{% block body %}
+	<article class="container-fluid">
+		<div class="row justify-content-center">
+			<div class="col-md-4">
+				<h1 class="text-center mt-5">La carte</h1>
+
+
+        {% for dishes in dishes.data %}
+       {# {% set categoryOrder = ['Entrées', 'Plats', 'Desserts', 'Boisson'] %}
+        {% set categories = ['Entrées', 'Plats', 'Desserts', 'Boisson'] %}#}
+      
+        {% for category in categoryOrder %}
+          <h2>{{ category }}</h2>
+            <pre>
+        {{ dump(categoryOrder) }}
+        </pre>
+          <ul>
+            {% for dishe in dishes %} 
+              {% if dishe.categories.name %}
+                <li>{{ dishe.name }}</li>
+                <li>{{ dishe.description }}</li>
+                <li>{{ dishe.price }}</li>
+              {% endif %}
+            {% endfor %}
+          <ul>
+            {% for dishe in dishes.data %} 
+              {% if dishe.categories.name == category %}
+                <li>{{ dishe.name }}</li>
+                <li>{{ dishe.description }}</li>
+                <li>{{ dishe.price }}</li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        {% endfor %}
+              </div>
+            </div>
+          </article>
+
+			<div class="col-3 mt-3">
+				<article class="card bg-secondary h-100">
+					<img src="{{ asset('assets/uploads/dishes/mini/300x300-' ~ dishes.images[0].name) }}" class="card-img-top" alt=" {{ dishes.name }} ">
+					<div class="card-body">
+						<h3 class="card-title mt-3  text-center">Nous vous proposons :</br>
+							{{ dishes.name }}</h3>
+						<p class="card-text text-center">Prix  :
+								{{ dishes.price }} €</p>
+						<p  class="text-center">Déscription du plat :
+								{{ dishes.description }}</p>
+								<a class="btn" href=" {{ path('app_dishes_details', {"slug": dishes.slug })}} ">Voir les détails du plats</a>
+								<a class="btn" href=" {{ path('app_reservation', {"slug": dishes.slug })}} ">Réserver</a>
+					</div>
+				</article>
+			</div>
+		 {% endfor %}
+     {% endblock %}
+		{#		{% set categoryOrder = ['Entrées', 'Plats', 'Desserts', 'Boisson'] %}
+        {% set categories = ['Entrées', 'Plats', 'Desserts', 'Boisson'] %}
+			  <pre>
+        {{ dump(categoryOrder) }}
+        </pre>
+        {% for category in categoryOrder %}
+          <h2>{{ category }}</h2>
+          <ul>
+            {% for dishe in dishes %} 
+              {% if dishe.categories.name %}
+                <li>{{ dishe.name }}</li>
+                <li>{{ dishe.description }}</li>
+                <li>{{ dishe.price }}</li>
+              {% endif %}
+            {% endfor %}
+          <ul>
+            {% for dishe in dishes.data %} 
+              {% if dishe.categories.name == category %}
+                <li>{{ dishe.name }}</li>
+                <li>{{ dishe.description }}</li>
+                <li>{{ dishe.price }}</li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        {% endfor %}
+              </div>
+            </div>
+          </article>
+
+
+{% endblock %}
+{#   {% for category in categories %}
+        <h2>{{ category }}</h2>
+        <ul>
+          {% for dishe in dishes %} 
+		  {% if dishe.categories.name == category %}
+            <li>{{ dishe.name }}</li>
+			<li>{{ dishe.description }}</li>
+			<li>{{ dishe.price }}</li>
+          {% endif %}
+        {% endfor %}
+        </ul>
+      {% endfor %}
+	  
+
+
+
+    </div>
+  </div>
+</article>
+{% endblock %}#}

@@ -1,0 +1,21 @@
+{{ form_start(dishesForm) }}
+{{ form_row(dishesForm.name) }}
+{{ form_row(dishesForm.description) }}
+{{ form_row(dishesForm.price) }}
+{{ form_row(dishesForm.categories) }}
+{{ form_row(dishesForm.images) }}
+
+
+    {# Affichage des images #}
+    {% if app.request.attributes.get('_route') == 'admin_dishes_edit' %}
+
+        <h2>Images</h2>
+        {% for image in dishes.images %}
+            
+        {% endfor %}
+        
+    {% endif %}
+
+
+<button class="btn" type="submit"> {{ button_label | default ('Ajouter') }} </button>
+{{ form_end(dishesForm) }}

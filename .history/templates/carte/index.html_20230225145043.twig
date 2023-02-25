@@ -1,0 +1,69 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Le Quai-Antique | La carte
+{% endblock %}
+
+{% block body %}
+	<article class="container-fluid">
+		<div class="row justify-content-center">
+			<div class="col-md-4">
+				<h1 class="text-center mt-5">La carte</h1>
+
+
+		{#		{% for category in category %}
+					<h2>{{ category.name }}</h2>
+					<ul>
+						{% for dishe in dishes %}
+							{% if dishe.categories.id == category.id %}
+
+								{% if dishe.categories.id == 1 %}
+                <pre>
+{{ dump(dishe.categories) }}
+</pre>
+									{% for dishe in dishes %}
+										<li>{{ dishe.name }}</li>
+										<li>{{ dishe.description }}</li>
+										<li>{{ dishe.price }}</li>
+									{% endfor %}
+								{% elseif dishe.categories.id == 2 %}
+									{% for dishe in dishes %}
+										<li>{{ dishe.name }}</li>
+										<li>{{ dishe.description }}</li>
+										<li>{{ dishe.price }}</li>
+									{% endfor %}
+								{% elseif dishe.categories.id == 3 %}
+								{% for dishe in dishes %}
+										<li>{{ dishe.name }}</li>
+										<li>{{ dishe.description }}</li>
+										<li>{{ dishe.price }}</li>
+									{% endfor %}
+									{% elseif dishe.categories.id == 4 %}
+									{% for dishe in dishes %}
+										<li>{{ dishe.name }}</li>
+										<li>{{ dishe.description }}</li>
+										<li>{{ dishe.price }}</li>
+									{% endfor %}
+								{% endif %}
+							
+
+
+						{% endif %}
+					{% endfor %}
+				</ul>
+			{% endfor %}
+		</div>
+	</div>
+</article>{% endblock %}#}
+
+{% for dish in dishes %}
+    {% if dish.category.id == 1 %}
+        {# afficher les plats de la catégorie 1 #}
+    {% elseif dish.category.id == 2 %}
+        {# afficher les plats de la catégorie 2 #}
+    {% elseif dish.category.id == 3 %}
+        {# afficher les plats de la catégorie 3 #}
+    {% elseif dish.category.id == 4 %}
+        {# afficher les plats de la catégorie 4 #}
+    {% endif %}
+{% endfor %}
+

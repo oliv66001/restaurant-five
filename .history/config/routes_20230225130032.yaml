@@ -1,0 +1,9 @@
+controllers:
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: attribute
+# config/services.yaml
+    services:
+        App\Entity\Categories:
+        tags: ['doctrine.orm.entity']

@@ -1,0 +1,217 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Le Quai-Antique | La carte
+{% endblock %}
+
+{% block body %}
+	<!--<article class="container-fluid">
+		<div class="row justify-content-center">
+			<div class="col-md-4">
+				<h1 class="text-center mt-5">La carte</h1>-->
+
+
+			{#	<div id="flipbook">
+					<div class="hard">
+						Turn.js
+					</div>
+					<div class="hard"></div>
+					{% for category in category %}
+						<div>
+							<div class="category">
+								<h2>{{ category.name }}</h2>
+								{% for dish in category.dishes %}
+									<div class="dish">
+										<h3>{{ dish.name }}</h3>
+										<p>{{ dish.description }}</p>
+									</div>
+								{% endfor %}
+							</div>
+						</div>
+					{% endfor %}
+					<div class="hard"></div>
+					<div class="hard"></div>
+				</div>#}
+
+
+				<div id="flipbook">
+					<div class="hard">
+						Turn.js
+					</div>
+					<div class="hard"></div>
+					<div>
+						entree
+Marcelle Dupre
+Et aspernatur voluptatum quibusdam. Sit accusantium sed et consequatur eaque consectetur sit et. Quo est sunt atque repudiandae doloremque earum. Qui eligendi eum veritatis magni.
+
+Isabelle Jacquot
+Ad minima ut nihil sint voluptatem doloribus. Nesciunt est aspernatur consequatur dolores voluptatem provident. Distinctio voluptatum nesciunt repellat laboriosam molestias aut.
+
+Louis du Boutin
+Dolore hic est quisquam. Fugit quia sequi consectetur nesciunt vel fugiat est in.
+					</div>
+					<div>
+						entree
+Marcelle Dupre
+Et aspernatur voluptatum quibusdam. Sit accusantium sed et consequatur eaque consectetur sit et. Quo est sunt atque repudiandae doloremque earum. Qui eligendi eum veritatis magni.
+
+Isabelle Jacquot
+Ad minima ut nihil sint voluptatem doloribus. Nesciunt est aspernatur consequatur dolores voluptatem provident. Distinctio voluptatum nesciunt repellat laboriosam molestias aut.
+
+Louis du Boutin
+Dolore hic est quisquam. Fugit quia sequi consectetur nesciunt vel fugiat est in.
+					</div>
+					<div>
+						entree
+Marcelle Dupre
+Et aspernatur voluptatum quibusdam. Sit accusantium sed et consequatur eaque consectetur sit et. Quo est sunt atque repudiandae doloremque earum. Qui eligendi eum veritatis magni.
+
+Isabelle Jacquot
+Ad minima ut nihil sint voluptatem doloribus. Nesciunt est aspernatur consequatur dolores voluptatem provident. Distinctio voluptatum nesciunt repellat laboriosam molestias aut.
+
+Louis du Boutin
+Dolore hic est quisquam. Fugit quia sequi consectetur nesciunt vel fugiat est in.
+					</div>
+					<div>
+						entree
+Marcelle Dupre
+Et aspernatur voluptatum quibusdam. Sit accusantium sed et consequatur eaque consectetur sit et. Quo est sunt atque repudiandae doloremque earum. Qui eligendi eum veritatis magni.
+
+Isabelle Jacquot
+Ad minima ut nihil sint voluptatem doloribus. Nesciunt est aspernatur consequatur dolores voluptatem provident. Distinctio voluptatum nesciunt repellat laboriosam molestias aut.
+
+Louis du Boutin
+Dolore hic est quisquam. Fugit quia sequi consectetur nesciunt vel fugiat est in.
+					</div>
+					<div class="hard"></div>
+					<div class="hard"></div>
+				</div>
+
+			{% endblock %}
+
+			{% block javascripts %}
+        {{ parent() }}
+        <script src="{{ asset('js/turn.min.js') }}"></script>
+        <script>
+          $(document).ready(function() {
+            $('#flipbook').turn({
+              width: 400,
+              height: 300,
+              autoCenter: true
+            });
+          });
+        </script>
+				
+			{% endblock %}
+
+			{#{% for category in category %}
+											<h2>{{ category.name }}</h2>
+											<ul>
+												{% for dishe in dishes %}
+													{% if dishe.categories.id == category.id %}
+														<pre>
+						            {{ dump(category.id) }}
+						        </pre>
+														{% if dishe.category.id == 369 %}
+															<li>{{ dishe.name }}</li>
+															<li>{{ dishe.description }}</li>
+															<li>{{ dishe.price }}</li>
+														{% elseif dishe.category.id == 370 %}
+															<li>{{ dishe.name }}</li>
+															<li>{{ dishe.description }}</li>
+															<li>{{ dishe.price }}</li>
+														{% elseif dishe.category.id == 371 %}
+															<li>{{ dishe.name }}</li>
+															<li>{{ dishe.description }}</li>
+															<li>{{ dishe.price }}</li>
+														{% elseif dishe.category.id == 372 %}
+															
+						
+														{% endif %}
+													{% endif %}
+												{% endfor %}
+											</ul>
+										{% endfor %}
+									</div>
+								</div>
+							</article>
+						{% endblock %}#}
+
+
+			{#  {% set categories = ['Entrées', 'Plats', 'Desserts', 'Boisson'] %}
+						
+						                {% for category in categories %}
+						                    <h2>{{ category }}</h2>
+						 
+						                    <ul>
+						                       
+						                      
+						                            {% for dish in dishes %}
+						                                {% if dish.categories.name == category %}
+						                                    <li>{{ dish.name }}</li>
+						                                    <li>{{ dish.description }}</li>
+						                                    <li>{{ dish.price }}</li>
+						                                {% endif %}
+						                               <pre>
+						            {{ dump(dish) }}
+						        </pre>
+						                               
+						                       
+						                        {% endfor %}
+						                    </ul>
+						                {% endfor %}
+						            </div>
+						        </div>
+						    </article>
+						{% endblock %}#}
+
+			{#		{% set categoryOrder = ['Entrées', 'Plats', 'Desserts', 'Boisson'] %}
+						        {% set categories = ['Entrées', 'Plats', 'Desserts', 'Boisson'] %}
+									  <pre>
+						        {{ dump(categoryOrder) }}
+						        </pre>
+						        {% for category in categoryOrder %}
+						          <h2>{{ category }}</h2>
+						          <ul>
+						            {% for dishe in dishes %} 
+						              {% if dishe.categories.name %}
+						                <li>{{ dishe.name }}</li>
+						                <li>{{ dishe.description }}</li>
+						                <li>{{ dishe.price }}</li>
+						              {% endif %}
+						            {% endfor %}
+						          <ul>
+						            {% for dishe in dishes.data %} 
+						              {% if dishe.categories.name == category %}
+						                <li>{{ dishe.name }}</li>
+						                <li>{{ dishe.description }}</li>
+						                <li>{{ dishe.price }}</li>
+						              {% endif %}
+						            {% endfor %}
+						          </ul>
+						        {% endfor %}
+						              </div>
+						            </div>
+						          </article>
+						
+						
+						{% endblock %}
+						{#   {% for category in categories %}
+						        <h2>{{ category }}</h2>
+						        <ul>
+						          {% for dishe in dishes %} 
+								  {% if dishe.categories.name == category %}
+						            <li>{{ dishe.name }}</li>
+									<li>{{ dishe.description }}</li>
+									<li>{{ dishe.price }}</li>
+						          {% endif %}
+						        {% endfor %}
+						        </ul>
+						      {% endfor %}
+							  
+						
+						
+						
+						    </div>
+						  </div>
+						</article>
+						{% endblock %}#}

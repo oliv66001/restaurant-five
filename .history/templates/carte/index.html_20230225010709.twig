@@ -1,0 +1,39 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Le Quai-Antique | La carte{% endblock %}
+
+{% block body %}
+<article class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+      <h1 class="text-center mt-5">La carte</h1>
+
+      {% set categoryOrder = [1, 2, 3, 4] %}
+      {% set categories = ['Entrées', 'Plats', 'Desserts', 'Boisson'] %}
+
+      {% for category in categoryOrder %}
+        <h2>{{ category }}</h2>
+        <ul>
+          {% for dishe in dishes %} 
+		  {% if dishe.categories == category %}
+            <li>{{ dishe.name }}</li>
+			<li>{{ dishe.description }}</li>
+			<li>{{ dishe.price }}</li>
+          {% endif %}
+        {% endfor %}
+        </ul>
+      {% endfor %}
+	  {% for category in categories %}
+  <h2>{{ category.name }}</h2>
+  <ul>
+    {% for dishe in category.dishes %}
+      <li>{{ dump(dishe) }}</li>
+    {% endfor %}
+  </ul>
+{% endfor %}
+
+
+    </div>
+  </div>
+</article>
+{% endblock %}
